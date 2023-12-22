@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kicma X-Ray</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Dijagnoza</h1>
+    <img src="{{ url_for('static', filename=filename) }}" alt="Processed Image">
+
+    <div id="doctorInfo" class="hidden">
+        <h2>Komentari Doktora</h2>
+        <textarea id="doctorComments" name="doctorComments" placeholder="Unesite komentar..."></textarea>
+    </div>
+
+    <div id="healthAdvice" class="hidden">
+        <h2>Savjeti</h2>
+        <textarea id="advice" name="advice" placeholder="Unesite savjet..."></textarea>
+    </div>
+
+    <button id="saveDiagnosisButton">Sačuvaj dijagnozu</button>
+
+    <script>
+        document.getElementById('saveDiagnosisButton').addEventListener('click', function() {
+            var doctorComments = document.getElementById('doctorComments').value;
+            var advice = document.getElementById('advice').value;
+
+            if (doctorComments || advice) {
+                // Bar jedno od polja je popunjeno, prikaži poruku "Dijagnoza sačuvana"
+                alert('Dijagnoza uspjesno sačuvana')
+            } else {
+                // Nijedno polje nije popunjeno, prikaži poruku da se mora uneti jedno polje
+                alert('Morate unijeti barem jedno polje.');
+            }
+        });
+    </script>
+</body>
+</html>
+
